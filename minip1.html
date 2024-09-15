@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Pie Chart Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        /* Add CSS to control the canvas size */
+        .upper.textp{
+            background-color: antiquewhite;
+            border-radius: 20px;
+            height: auto;
+            width: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+            
+
+        }
+      
+        .upperp{
+          display: flex;
+          background-color: antiquewhite;
+            border-radius: 20px;
+            height: auto;
+            width: auto;
+            padding: 10px;
+            margin-bottom: 10px;
+            justify-content: center;
+        }
+
+        .upperp img{
+         
+          
+          width: 250px;
+          height: 250px;
+          padding: 20px;
+        }
+        
+        #chart-container {
+            text-align: center;
+            width: 500px;  /* Set smaller width */
+            height: 200px; /* Set smaller height */
+            margin: 20px auto; /* Centering the chart on the page */
+            padding-bottom: 50px;
+            margin-bottom: 100px;
+            margin-top: 50px;
+            background-color: rgba(255, 255, 255, 0.712);
+            font-weight: 300;
+            color: black;
+            
+        }
+
+        #myPieChart {
+            width: 100%;  /* Ensures the canvas fits the container */
+            height: 100%;
+            
+        }
+
+         .items{
+             display: flex; 
+            justify-content: center;
+             margin-bottom: 20px; 
+            background-color: beige;
+             /* text-align: center;  */
+            padding: 15px;
+            height: auto;
+            width: auto;
+            border-radius: 10px;
+            /* flex-wrap: wrap; */
+        } 
+
+        .items h3{
+ 
+            
+            text-align: center;
+            color: goldenrod;
+        }
+
+        /* .items .Menu
+        {
+                justify-content: center;
+                border-radius: 8px;
+                background-color: rgba(255, 255, 255, 0.5);
+                text-decoration-color: aliceblue;
+                margin: 0 30px;
+                 /* text-align: center; 
+                height: auto;
+                width: auto;
+                padding: 4px ;
+                display: flex; 
+                /* color: rgba(180, 119, 27, 0.623); */
+                 /* align-items: center;  
+                flex-direction: column;
+                margin-bottom: 30px;
+                margin-top: 30px;
+
+        } */
+
+        /* .Menu img{
+            max-width: 100%;
+            align-items: center;
+            border-radius: 10px;
+            height:210px;
+        } */
+
+       /* body{
+        background-image: url('C:\Users\YASHICA\Downloads\vegetables.jpeg');
+       } */
+
+       body {
+background-image: url('vegetables.jpeg');
+       background-size: cover; 
+       background-position: center; 
+       background-repeat: no-repeat;
+       
+}
+
+        
+
+        .nutrition-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.nutrition-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.nutrition-values {
+  display: flex;
+  gap: 20px;
+  flex-direction: row;
+}
+
+.nutrition-value {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.nutrition-value-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  flex-direction: row;
+}
+
+.nutrition-value-label {
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.menu-container {
+            position: relative;
+            width: 100%;
+            /* max-width: 800px; Adjust as needed */
+            max-width: auto;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .menu-wrapper {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .Menu {
+            flex: 0 0 33.33%; /* Show 3 items at a time */
+            box-sizing: border-box;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background-color: #f9f9f9;
+            margin-right: 10px; /* Space between items */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center contents horizontally */
+            justify-content: center; /* Center contents vertically */
+        }
+
+        .Menu img {
+            max-width: 300px;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .arrow-left, .arrow-right {
+            position: absolute;
+            top: 50%;
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            z-index: 10;
+            transform: translateY(-50%);
+        }
+
+        .arrow-left {
+            left: 0;
+        }
+
+        .arrow-right {
+            right: 0;
+        }
+
+    </style>
+</head>
+<body>
+      
+    <div class="upperp"> 
+    <div class="textp">
+      
+        <h2>Here are some specially curated meal plans from our expert service</h2>
+        <i>According to our experts:</i> <br>
+        <ul>
+            <li>High-fiber foods: Whole grains, legumes, and vegetables help slow the absorption of sugar.</li>
+            <li>Fats: Include sources like avocados, olive oil, and nuts, which can improve insulin sensitivity.</li>
+            <li>Lean proteins: Opt for chicken, fish, tofu, and legumes for sustained energy.</li>
+            <li>Sugar and refined carbs: Avoid sugary drinks, candies, and white bread.</li>
+        </ul>
+        <i>Here is reference to the article: <a href="https://www.ncbi.nlm.nih.gov/books/NBK279012/">Click Here to know more</a></i>
+    </div>
+    <img src="https://www.jagannathskitchen.in/images/placeholder.jpg" alt="">
+  </div> 
+
+    <div id="chart-container">
+
+        <canvas id="myPieChart"></canvas>
+        <p><i>Here is reference article for dieatry nutritons to be consumed by patients</i></p>
+        <a href="https://www.researchgate.net/figure/Diet-Comparisons-in-Recent-Research-Papers-Pie-chart-showing-the-percentage-of-35_fig1_5456819">Click here to know more</a>
+    </div>
+
+    <script>
+        var ctx = document.getElementById('myPieChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Carbohydrates', 'Protiens', 'Fats'],
+                datasets: [{
+                    label: 'Diabetic Diest based on general guidlines',
+                    data: [50, 20, 30],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true, // Keeps the chart responsive
+                maintainAspectRatio: false // Allows flexibility in controlling the size
+            }
+        });
+
+        
+    </script>
+
+    
+
+<div class="items">
+     
+  <div class="menu-container">
+    <button class="arrow-left" onclick="scrollMenu(-1)">←</button>
+    <div id="menuWrapper" class="menu-wrapper">
+            <div class="Menu">
+        <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+        <p>
+            <h3><I>MONDAY</I></h3>
+            <ul>
+            <li>Vegetables:Palak</li>
+            <li>Moong Dal Khichdi with sautéed spinach</li>
+            <li>Jowar Bhakri</li>
+            <li>Curd</li>
+            <li>Seasonal Fruits</li>
+        </ul>
+        </p>
+        <div class="nutrition-values">
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
+                12g
+              </div>
+              <div class="nutrition-value-label">Fat</div>
+            </div>
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #e79797;">
+                90g
+              </div>
+              <div class="nutrition-value-label">Carb</div>
+            </div>
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
+                20g
+              </div>
+              <div class="nutrition-value-label">Protein</div>
+            </div>
+          </div>
+    </div>
+
+    <div class="Menu">
+        <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+        <p>  
+            <h3><I>TUESDAY</I></h3>
+            <ul>
+            <li>Vegetables:Methi</li>
+            <li>Dal Tadka (Yellow Lentils)</li>
+            <li>Brown rice</li>
+            <li>Multigrain Chapati</li>
+            <li>Curd</li>
+            <li>Seasonal Fruits</li>
+        </ul>
+        </p>
+        <div class="nutrition-values">
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
+                11g
+              </div>
+              <div class="nutrition-value-label">Fat</div>
+            </div>
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #e79797;">
+                100g
+              </div>
+              <div class="nutrition-value-label">Carb</div>
+            </div>
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
+                22g
+              </div>
+              <div class="nutrition-value-label">Protein</div>
+            </div>
+          </div>
+        
+    </div>
+
+    <div class="Menu">
+      <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+      <p>  
+          <h3><I>WEDNSDAY</I></h3>
+          <ul>
+          <li>Vegetable Besan Chilla</li>
+          <li>Mixed Vegetable Curry</li>
+          <li>Brown rice</li>
+          <li>Multigrain Chapati</li>
+          <li>Curd</li>
+          <li>Seasonal Fruits</li>
+      </ul>
+      </p>
+      <div class="nutrition-values">
+          <div class="nutrition-value">
+            <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
+              14g
+            </div>
+            <div class="nutrition-value-label">Fat</div>
+          </div>
+          <div class="nutrition-value">
+            <div class="nutrition-value-circle" style="background-color: #e79797;">
+              110g
+            </div>
+            <div class="nutrition-value-label">Carb</div>
+          </div>
+          <div class="nutrition-value">
+            <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
+              25g
+            </div>
+            <div class="nutrition-value-label">Protein</div>
+          </div>
+        </div>
+      
+  </div>
+
+  <div class="Menu">
+    <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+    <p>  
+        <h3><I>THURSDAY</I></h3>
+        <ul>
+        <li>Palak Dal (Spinach and Lentil Curry) with Quinoa</li>
+        <li>Palak Paneer</li>
+        <li>Brown rice</li>
+        <li>Multigrain Chapati</li>
+        <li>Curd</li>
+        <li>Seasonal Fruits</li>
+    </ul>
+    </p>
+    <div class="nutrition-values">
+        <div class="nutrition-value">
+          <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
+            20g
+          </div>
+          <div class="nutrition-value-label">Fat</div>
+        </div>
+        <div class="nutrition-value">
+          <div class="nutrition-value-circle" style="background-color: #e79797;">
+            110g
+          </div>
+          <div class="nutrition-value-label">Carb</div>
+        </div>
+        <div class="nutrition-value">
+          <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
+            30g
+          </div>
+          <div class="nutrition-value-label">Protein</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="Menu">
+      <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+      <p>  
+          <h3><I>FRIDAY</I></h3>
+          <ul>
+          <li>Methi Thepla (Fenugreek Flatbread)</li>
+          <li>Masala Brown rice</li>
+          <li>Multigrain Chapati</li>
+          <li>Curd</li>
+          <li>Seasonal Fruits</li>
+      </ul>
+      </p>
+      <div class="nutrition-values">
+          <div class="nutrition-value">
+            <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
+              14g
+            </div>
+            <div class="nutrition-value-label">Fat</div>
+          </div>
+          <div class="nutrition-value">
+            <div class="nutrition-value-circle" style="background-color: #e79797;">
+              105g
+            </div>
+            <div class="nutrition-value-label">Carb</div>
+          </div>
+          <div class="nutrition-value">
+            <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
+              18g
+            </div>
+            <div class="nutrition-value-label">Protein</div>
+          </div>
+        </div>
+        </div>
+
+        <div class="Menu">
+          <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+          <p>  
+              <h3><I>SATURDAY</I></h3>
+              <ul>
+              <li>Vegetables:Chole (Chickpea Curry)</li>
+              <li> Methi Dal (Fenugreek and Lentil Curry)</li>
+              <li>Brown rice</li>
+              <li>Multigrain Chapati</li>
+              <li>Curd</li>
+              <li>Seasonal Fruits</li>
+          </ul>
+          </p>
+          <div class="nutrition-values">
+              <div class="nutrition-value">
+                <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
+                  12g
+                </div>
+                <div class="nutrition-value-label">Fat</div>
+              </div>
+              <div class="nutrition-value">
+                <div class="nutrition-value-circle" style="background-color: #e79797;">
+                  110g
+                </div>
+                <div class="nutrition-value-label">Carb</div>
+              </div>
+              <div class="nutrition-value">
+                <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
+                  26g
+                </div>
+                <div class="nutrition-value-label">Protein</div>
+              </div>
+            </div>
+          
+      </div>
+
+      <div class="Menu">
+        <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+        <p>  
+            <h3><I>SUNDAY</I></h3>
+            <ul>
+            <li>Tandoori Paneer Tikka</li>
+            <li>Quinoa Vegetable Biryani</li>
+            <li>Raita: Cucumber Mint Raita</li>
+            <li>Dessert: Sugar-Free Phirni (Rice Pudding)</li>
+            <li>Seasonal Fruits</li>
+        </ul>
+        </p>
+        <div class="nutrition-values">
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
+                18g
+              </div>
+              <div class="nutrition-value-label">Fat</div>
+            </div>
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #e79797;">
+                100g
+              </div>
+              <div class="nutrition-value-label">Carb</div>
+            </div>
+            <div class="nutrition-value">
+              <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
+                35g
+              </div>
+              <div class="nutrition-value-label">Protein</div>
+            </div>
+          </div>
+        
+    </div>
+  </div>
+  <button class="arrow-right" onclick="scrollMenu(1)">→</button>
+</div>
+</div>
+
+<script>
+  const itemsToShow = 3; // Number of items to show at a time
+  let currentIndex = 0;
+
+  function scrollMenu(direction) {
+      const menuWrapper = document.getElementById('menuWrapper');
+      const itemWidth = menuWrapper.querySelector('.Menu').offsetWidth + 10; // Width of each item + margin
+      const totalItems = menuWrapper.children.length;
+      const totalWidth = itemWidth * totalItems;
+      const visibleWidth = menuWrapper.clientWidth;
+      
+      // Calculate the new position
+      currentIndex += direction;
+
+      // Looping logic
+      if (currentIndex < 0) {
+          currentIndex = totalItems - itemsToShow; // Go to the end
+      } else if (currentIndex > totalItems - itemsToShow) {
+          currentIndex = 0; // Go to the start
+      }
+
+      menuWrapper.style.transform = `translateX(-${itemWidth * currentIndex}px)`;
+  }
+</script>
+
+
+</body>
+</html>
