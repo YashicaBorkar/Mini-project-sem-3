@@ -1,0 +1,134 @@
+/* .clickable-box {
+    width: 300px;
+    height: auto; /* Adjust height according to content 
+    background-color: #bdce7e;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column; /* Allows list and image to stack vertically 
+    cursor: pointer;
+    border-radius: 10px;
+    text-align: left;
+    padding: 10px;
+    text-decoration: none; 
+}
+
+.clickable-box:hover {
+    background-color: #7e8b35;
+} */
+
+.clickable-box {
+    width: 600px;
+    height: auto;
+    align-items: center;
+    background-color: #bdce7e;
+    color: black;
+    text-decoration: none; /* Remove underline */
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+
+.content {
+    display: flex; /* Enables flexbox for proper alignment */
+    justify-content: space-between ; /* Space between the text and image */
+    align-items: center; /* Align items vertically */
+}
+
+.clickable-box:hover {
+    background-color: antiquewhite;
+}
+
+.clickable-box img {
+    width: 300px;
+    height: 300px;
+    margin-left: 10px;
+
+}
+
+/* .clickable-box ul {
+    list-style-type: disc; 
+    padding: 0;
+    margin: 0;
+}  */
+
+.clickable-box ul {
+    padding: 20;  /* Adjust padding */
+    margin: 20;   /* Adjust margin */
+    list-style-type: disc; /* Default bullets */
+    font-style: italic;
+    
+}
+
+.clickable-box li {
+    margin: 5px 0; /* Space between list items */
+    font-style: italic;
+    font-size: larger;
+    
+}
+
+.box-container{
+    justify-content: flex-start;
+}  
+
+/* .background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQWu2cPEGk_KfaOotpK-tZ0RW4hmFRgqxfRM6iw8JMPCdwhxTE9'); /* Replace with your image 
+    background-size: cover;
+    background-position: center;
+    /*filter: blur(0px); /* Apply blur effect 
+    z-index: -1; /* Sends background image behind other content 
+} */
+
+body {
+  background-image: url('vegetables1.jpeg');
+  background-size: cover; /* Ensures the image covers the entire page */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-attachment: fixed; /* Keeps the image fixed in place when scrolling */
+  background-position: center center; /* Centers the image */
+}
+
+.obj {
+
+    background-color: #bdce7e;
+    width: 350px;
+    height: fit-content;
+    font-size: 30px;
+    font-style: italic;
+    border-radius: 10px; 
+    padding: 20px;
+    margin-left: 200px;
+    align-items: right;
+}
+
+.obj img{
+
+    max-width: 100%;
+    height: 250px;
+}
+
+.bg {
+
+    display: flex;
+    
+    padding: 100px;
+    
+    
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+.obj a{
+
+    color: wheat;
+    text-decoration: underline;
+}
