@@ -160,7 +160,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
        } */
 
        body {
-background-image: url('vegetables.jpeg');
+background-image: url('vegetables1.jpeg');
        background-size: cover; 
        background-position: center; 
        background-repeat: no-repeat;
@@ -238,7 +238,7 @@ background-image: url('vegetables.jpeg');
 
         .Menu img {
             max-width: 300px;
-            height: auto;
+            height: 250px;
             border-radius: 8px;
             margin-bottom: 10px;
         }
@@ -390,7 +390,7 @@ background-image: url('vegetables.jpeg');
     </div>
 
     <div class="Menu">
-        <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+        <img src="mpi10.jpeg"  alt="img">
         <p>  
             <h3><I>TUESDAY</I></h3>
             <ul>
@@ -426,7 +426,7 @@ background-image: url('vegetables.jpeg');
     </div>
 
     <div class="Menu">
-      <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+      <img src="mpi3.jpg"  alt="img">
       <p>  
           <h3><I>WEDNSDAY</I></h3>
           <ul>
@@ -462,7 +462,7 @@ background-image: url('vegetables.jpeg');
   </div>
 
   <div class="Menu">
-    <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+    <img src="mpi6.jpg"  alt="img">
     <p>  
         <h3><I>THURSDAY</I></h3>
         <ul>
@@ -497,7 +497,7 @@ background-image: url('vegetables.jpeg');
     </div>
 
     <div class="Menu">
-      <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+      <img src="mpi5.jpg"  alt="img">
       <p>  
           <h3><I>FRIDAY</I></h3>
           <ul>
@@ -531,7 +531,7 @@ background-image: url('vegetables.jpeg');
         </div>
 
         <div class="Menu">
-          <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+          <img src="mpi8.jpg"  alt="img">
           <p>  
               <h3><I>SATURDAY</I></h3>
               <ul>
@@ -567,7 +567,7 @@ background-image: url('vegetables.jpeg');
       </div>
 
       <div class="Menu">
-        <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
+        <img src="mpi7.jpg"  alt="img">
         <p>  
             <h3><I>SUNDAY</I></h3>
             <ul>
