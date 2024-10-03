@@ -459,7 +459,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
     font-size: 22px;
 }
 
-.remove-btn {
+.remove-button {
     background-color: #ff6666; /* Light red background */
     color: white; /* White text */
     border: none; /* No border */
@@ -470,7 +470,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
     margin-left: 10px; /* Add margin to create space on the left */
 }
 
-.remove-btn:hover {
+.remove-button:hover {
     background-color: #ff4c4c;  /* Darker red on hover */
 }
 
@@ -487,6 +487,29 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
     text-align: center;
     margin-top: 15px;
 }
+
+#bulkOrderContainer {
+    margin-top: 50px; /* Adjust the space above the bulk order options */
+    padding: 10px; /* Add padding */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    background-color: #f9f9f9; /* Light background */
+    width: auto;
+    font-size: 20px;
+}
+
+        label {
+            display: block; /* Block display for labels */
+            margin: 5px 0; /* Space above and below */
+        }
+
+        input[type="number"] {
+            padding: 5px; /* Padding for the number input */
+            width: 70px; /* Set a width for the input */
+            border: 1px solid #ccc; /* Light border */
+            border-radius: 5px; /* Rounded corners */
+            font-size: medium;
+        }
 
 
     </style>
@@ -536,64 +559,26 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
   <div id="chart-container">
     <h1>Nutrition Pie Chart</h1>
     <canvas id="myPieChart"></canvas>
-    <div id="error-message">Error fetching data. Please try again later.</div>
     </div>
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            // Fetch data using AJAX
-            fetch('?action=getData')
-                .then(response => {
-                    if (response.ok) {
-                        return response.json(); // Parse JSON
-                    } else {
-                        throw new Error('Network response was not ok');
+        const bpCtx = document.getElementById('myPieChart').getContext('2d');
+        new Chart(bpCtx, {
+            type: 'pie',
+            data: {
+                labels: ['Proteins', 'Carbs', 'Fats'],
+                datasets: [{
+                    data: [25, 50, 25], // Sample values for BP patients
+                    backgroundColor: ['#FF9999', '#99CCFF', '#FFCC99'],
+                }]
+            },
+            options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Diet for BP Patients'
                     }
-                })
-                .then(data => {
-                    if (data.error) {
-                        throw new Error(data.error);
-                    }
-                    
-                    // Extract data for pie chart
-                    const protien = parseFloat(data.Protiens);
-                    const fat = parseFloat(data.Fats);
-                    const carbs = parseFloat(data.Carbs);
-
-                    // Create pie chart
-                    const ctx = document.getElementById('myPieChart').getContext('2d');
-                    new Chart(ctx, {
-                        type: 'pie',
-                        data: {
-                            labels: ['Proteins', 'Fats', 'Carbs'],
-                            datasets: [{
-                                data: [protien, fat, carbs],
-                                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56']
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            plugins: {
-                                legend: {
-                                    position: 'top',
-                                },
-                                tooltip: {
-                                    callbacks: {
-                                        label: function(tooltipItem) {
-                                            return tooltipItem.label + ': ' + tooltipItem.raw;
-                                        }
-                                    }
-                                }
-                            },
-                            layout: {
-                                padding: 20 // Add padding around the chart
-                            }
-                        }
-                    });
-                })
-                .catch(error => {
-                    console.error('Error fetching data:', error);
-                    document.getElementById('error-message').style.display = 'block';
-                });
+                }
+            }
         });
     </script>
 
@@ -642,7 +627,17 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
               <div class="nutrition-value-label">Protein</div>
             </div>
           </div>
-          <button class="add-to-order" onclick="addToOrder('Monday', 150)">Add to Order - Rs150</button>
+
+          <div class="add-to-order-container">
+            <label>
+                <input type="checkbox" class="bulkOrderCheckbox"> Bulk Order
+            </label>
+            <div class="bulkOrderContainer" style="display: none;">
+                <label>Number of Meals:</label>
+                <input type="number" class="numMeals" min="1" value="1">
+            </div>
+            <button class="add-to-order" data-name="Monday Meal" data-price="150">Add to Order - Rs 350</button>
+        </div>
     </div>
 
     <div class="Menu">
@@ -679,7 +674,16 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
             </div>
           </div>
         
-          <button class="add-to-order" onclick="addToOrder('Tuesday', 200)">Add to Order - Rs200</button>
+          <div class="add-to-order-container">
+            <label>
+                <input type="checkbox" class="bulkOrderCheckbox"> Bulk Order
+            </label>
+            <div class="bulkOrderContainer" style="display: none;">
+                <label>Number of Meals:</label>
+                <input type="number" class="numMeals" min="1" value="1">
+            </div>
+            <button class="add-to-order" data-name="Tuesday Meal" data-price="200">Add to Order - Rs 350</button>
+        </div>
 
     </div>
 
@@ -716,7 +720,18 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
             <div class="nutrition-value-label">Protein</div>
           </div>
         </div>
-        <button class="add-to-order" onclick="addToOrder('Wednesday', 150)">Add to Order - Rs150</button>
+
+        <div class="add-to-order-container">
+            <label>
+                <input type="checkbox" class="bulkOrderCheckbox"> Bulk Order
+            </label>
+            <div class="bulkOrderContainer" style="display: none;">
+                <label>Number of Meals:</label>
+                <input type="number" class="numMeals" min="1" value="1">
+            </div>
+            <button class="add-to-order" data-name="Wednesday Meal" data-price="150">Add to Order - Rs 350</button>
+        </div>
+
     </div>
 
   <div class="Menu">
@@ -752,7 +767,19 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
           <div class="nutrition-value-label">Protein</div>
         </div>
       </div>
-      <button class="add-to-order" onclick="addToOrder('Thursday', 250)">Add to Order - Rs250</button>
+
+
+      <div class="add-to-order-container">
+            <label>
+                <input type="checkbox" class="bulkOrderCheckbox"> Bulk Order
+            </label>
+            <div class="bulkOrderContainer" style="display: none;">
+                <label>Number of Meals:</label>
+                <input type="number" class="numMeals" min="1" value="1">
+            </div>
+            <button class="add-to-order" data-name="Thursday Meal" data-price="250">Add to Order - Rs 350</button>
+        </div>
+
   </div>
 
     <div class="Menu">
@@ -788,7 +815,19 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
             <div class="nutrition-value-label">Protein</div>
           </div>
         </div>
-        <button class="add-to-order" onclick="addToOrder('Friday', 150)">Add to Order - Rs150</button>
+
+
+        <div class="add-to-order-container">
+            <label>
+                <input type="checkbox" class="bulkOrderCheckbox"> Bulk Order
+            </label>
+            <div class="bulkOrderContainer" style="display: none;">
+                <label>Number of Meals:</label>
+                <input type="number" class="numMeals" min="1" value="1">
+            </div>
+            <button class="add-to-order" data-name="Friday Meal" data-price="150">Add to Order - Rs 350</button>
+        </div>
+
     </div>
 
         <div class="Menu">
@@ -824,7 +863,19 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
                 <div class="nutrition-value-label">Protein</div>
               </div>
             </div>
-            <button class="add-to-order" onclick="addToOrder('Saturday', 200)">Add to Order - Rs200</button>
+            
+
+            <div class="add-to-order-container">
+            <label>
+                <input type="checkbox" class="bulkOrderCheckbox"> Bulk Order
+            </label>
+            <div class="bulkOrderContainer" style="display: none;">
+                <label>Number of Meals:</label>
+                <input type="number" class="numMeals" min="1" value="1">
+            </div>
+            <button class="add-to-order" data-name="Saturday Meal" data-price="200">Add to Order - Rs 350</button>
+        </div> 
+
         </div>
 
       <div class="Menu">
@@ -862,8 +913,15 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
             </div>
              </div>
              <div class="add-to-order-container">
-                <button class="add-to-order" onclick="addToOrder('Sunday', 350)">Add to Order - Rs 350</button>
-              </div>
+            <label>
+                <input type="checkbox" class="bulkOrderCheckbox"> Bulk Order
+            </label>
+            <div class="bulkOrderContainer" style="display: none;">
+                <label>Number of Meals:</label>
+                <input type="number" class="numMeals" min="1" value="1">
+            </div>
+            <button class="add-to-order" data-name="Sunday Meal" data-price="350">Add to Order - Rs 350</button>
+        </div>
       </div>
         
     </div>
@@ -899,49 +957,53 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
   }
 </script>
 
-<div id="orderSummary" class="order-summary">
+<div class="order-summary">
     <h3>Order Summary</h3>
-    <ul id="orderItems"></ul>
-    <p>Total: Rs <span id="totalPrice">0</span></p>
+    <ul id="summaryList"></ul>
+    <div>Total Amount: <span id="totalAmount"> Rs 0 </span></div>
 </div>
 
 <script>
-   let totalPrice = 0;
-
-function addToOrder(day, price) {
-    const orderItems = document.getElementById('orderItems');
-    const totalPriceElement = document.getElementById('totalPrice');
-
-    // Create a list item for the order summary
-    const listItem = document.createElement('li');
-    listItem.textContent = `${day} Meal - Rs ${price} `;
-
-    // Create a "Remove" button for each item
-    const removeButton = document.createElement('button');
-    removeButton.textContent = 'Remove';
-    removeButton.classList.add('remove-btn'); // Add the class for CSS styling
-
-    // Add an event listener to the remove button
-    removeButton.addEventListener('click', function () {
-        // Update the total price by subtracting the price of the removed item
-        totalPrice -= price;
-        totalPriceElement.textContent = totalPrice;
-
-        // Remove the list item from the order summary
-        orderItems.removeChild(listItem);
+    // Add event listeners to all bulk order checkboxes
+    document.querySelectorAll('.bulkOrderCheckbox').forEach(checkbox => {
+        checkbox.addEventListener('change', function() {
+            const bulkOrderContainer = this.closest('.add-to-order-container').querySelector('.bulkOrderContainer');
+            // Show or hide the corresponding bulk order input based on checkbox state
+            bulkOrderContainer.style.display = this.checked ? 'block' : 'none';
+        });
     });
 
-    // Add the remove button to the list item
-    listItem.appendChild(removeButton);
+    // Add event listeners to all "Add to Order" buttons
+    document.querySelectorAll('.add-to-order').forEach(button => {
+        button.addEventListener('click', function() {
+            const mealName = this.dataset.name;
+            const mealPrice = parseInt(this.dataset.price);
+            const bulkOrderCheckbox = this.closest('.add-to-order-container').querySelector('.bulkOrderCheckbox');
+            const quantityInput = this.closest('.add-to-order-container').querySelector('.numMeals');
+            const quantity = bulkOrderCheckbox.checked ? parseInt(quantityInput.value) : 1;
+            const totalPrice = mealPrice * quantity;
 
-    // Add the list item to the order summary
-    orderItems.appendChild(listItem);
+            // Add to order summary
+            const summaryList = document.getElementById('summaryList');
+            const summaryItem = document.createElement('li');
+            summaryItem.innerHTML = `${mealName} x ${quantity}: Rs ${totalPrice} <button class="remove-button">Remove</button>`;
+            summaryList.appendChild(summaryItem);
 
-    // Update total price
-    totalPrice += price;
-    totalPriceElement.textContent = totalPrice;
-}
+            // Add event listener for remove button
+            summaryItem.querySelector('.remove-button').addEventListener('click', function() {
+                summaryList.removeChild(summaryItem);
+                // Update total amount
+                const totalAmountElement = document.getElementById('totalAmount');
+                const currentTotal = parseInt(totalAmountElement.textContent.replace('Rs ', ''));
+                totalAmountElement.textContent = `Rs ${currentTotal - totalPrice}`;
+            });
 
+            // Update the total amount
+            const totalAmountElement = document.getElementById('totalAmount');
+            const currentTotal = parseInt(totalAmountElement.textContent.replace('Rs ', ''));
+            totalAmountElement.textContent = `Rs ${currentTotal + totalPrice}`;
+        });
+    });
 </script>
 
 </body>
