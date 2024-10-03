@@ -504,11 +504,13 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
         <h2>Here are some specially curated meal plans from our expert service</h2>
         <i>According to our experts:</i> <br>
         <ul>
-            <li>High-fiber foods: Whole grains, legumes, and vegetables help slow the absorption of sugar.</li><br>
-            <li>Fats: Include sources like avocados, olive oil, and nuts, which can improve insulin sensitivity.</li><br>
-            <li>Lean proteins: Opt for chicken, fish, tofu, and legumes for sustained energy.</li><br>
-            <li>Sugar and refined carbs: Avoid sugary drinks, candies, and white bread.</li>
+        <li>High-potassium foods: Include bananas, oranges, and sweet potatoes to help balance sodium levels.</li><br>
+        <li>Low-sodium foods: Opt for fresh vegetables, herbs, and spices instead of salt for flavoring.</li><br>
+        <li>Healthy fats: Include olive oil, nuts, and seeds, which are good for heart health.</li><br>
+        <li>Whole grains: Choose brown rice, oats, and quinoa for fiber and stable blood pressure levels.</li><br>
+        <li>Sugar and refined carbs: Avoid sugary drinks, candies, and white bread.</li>
         </ul>
+
         
         <!-- <i>         Here is reference to the article: <a href="https://www.ncbi.nlm.nih.gov/books/NBK279012/">Click Here to know more</a></i> -->
     </div>
@@ -611,31 +613,31 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
             <div class="Menu">
         <img src="https://i.pinimg.com/736x/29/d3/f3/29d3f3f2b086e58d99ee45139d21fe0b.jpg"  alt="img">
         <p>
-            <h3><I>MONDAY</I></h3>
-            <ul>
-            <li>Vegetables:Palak</li>
-            <li>Moong Dal Khichdi with sautéed spinach</li>
-            <li>Jowar Bhakri</li>
-            <li>Curd</li>
-            <li>Seasonal Fruits</li>
+        <ul>
+        <li>Vegetable: Steamed Broccoli</li>
+        <li>Curry: Lentil Curry (Moong Dal)</li>
+        <li>Bread: Bajra Roti</li>
+        <li>Dairy: Curd</li>
+        <li>Fruit: Apple</li>
+        <!-- <li>Fats: 10g, Carbs: 48g, Proteins: 16g</li> -->
         </ul>
         </p>
         <div class="nutrition-values">
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
-                12g
+                10g
               </div>
               <div class="nutrition-value-label">Fat</div>
             </div>
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #e79797;">
-                90g
+                48g
               </div>
               <div class="nutrition-value-label">Carb</div>
             </div>
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
-                20g
+                16g
               </div>
               <div class="nutrition-value-label">Protein</div>
             </div>
@@ -648,30 +650,30 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
         <p>  
             <h3><I>TUESDAY</I></h3>
             <ul>
-            <li>Vegetables:Methi</li>
-            <li>Dal Tadka (Yellow Lentils)</li>
-            <li>Brown rice</li>
-            <li>Multigrain Chapati</li>
-            <li>Curd</li>
-            <li>Seasonal Fruits</li>
-        </ul>
+            <li>Vegetable: Spinach Stir Fry</li>
+            <li>Curry: Black-Eyed Beans Curry</li>
+            <li>Bread: Whole Wheat Chapati</li>
+            <li>Dairy: Buttermilk</li>
+            <li>Fruit: Orange</li>
+            <!-- <li>Fats: 8g, Carbs: 50g, Proteins: 18g</li> -->
+            </ul>
         </p>
         <div class="nutrition-values">
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
-                11g
+                8g
               </div>
               <div class="nutrition-value-label">Fat</div>
             </div>
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #e79797;">
-                100g
+                50g
               </div>
               <div class="nutrition-value-label">Carb</div>
             </div>
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
-                22g
+                18g
               </div>
               <div class="nutrition-value-label">Protein</div>
             </div>
@@ -686,14 +688,16 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
       <p>  
           <h3><I>WEDNSDAY</I></h3>
           <ul>
-          <li>Vegetable Besan Chilla</li>
-          <li>Mixed Vegetable Curry</li>
-          <li>Brown rice</li>
-          <li>Multigrain Chapati</li>
-          <li>Curd</li>
-          <li>Seasonal Fruits</li>
-      </ul>
-      </p>
+          <ul>
+            <li>Vegetable: Stir-Fried Bell Peppers</li>
+            <li>Curry: Paneer and Peas</li>
+            <li>Bread: Jowar Roti</li>
+            <li>Non-Veg: Grilled Chicken (optional)</li>
+            <li>Dairy: Curd</li>
+            <li>Fruit: Papaya</li>
+            <!-- <li>Fats: 14g, Carbs: 47g, Proteins: 28g</li> -->
+            </ul>
+                </p>
       <div class="nutrition-values">
           <div class="nutrition-value">
             <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
@@ -703,13 +707,13 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
           </div>
           <div class="nutrition-value">
             <div class="nutrition-value-circle" style="background-color: #e79797;">
-              110g
+              47g
             </div>
             <div class="nutrition-value-label">Carb</div>
           </div>
           <div class="nutrition-value">
             <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
-              25g
+              28g
             </div>
             <div class="nutrition-value-label">Protein</div>
           </div>
@@ -722,30 +726,30 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
     <p>  
         <h3><I>THURSDAY</I></h3>
         <ul>
-        <li>Palak Dal (Spinach and Lentil Curry) with Quinoa</li>
-        <li>Palak Paneer</li>
-        <li>Brown rice</li>
-        <li>Multigrain Chapati</li>
-        <li>Curd</li>
-        <li>Seasonal Fruits</li>
-    </ul>
-    </p>
+        <li>Vegetable: Steamed Carrot and Beans</li>
+        <li>Curry: Chickpea Curry</li>
+        <li>Bread: Ragi Roti</li>
+        <li>Dairy: Buttermilk</li>
+        <li>Fruit: Guava</li>
+        <!-- <li>Fats: 9g, Carbs: 52g, Proteins: 20g</li> -->
+        </ul>
+            </p>
     <div class="nutrition-values">
         <div class="nutrition-value">
           <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
-            20g
+            9g
           </div>
           <div class="nutrition-value-label">Fat</div>
         </div>
         <div class="nutrition-value">
           <div class="nutrition-value-circle" style="background-color: #e79797;">
-            110g
+            52g
           </div>
           <div class="nutrition-value-label">Carb</div>
         </div>
         <div class="nutrition-value">
           <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
-            30g
+            20g
           </div>
           <div class="nutrition-value-label">Protein</div>
         </div>
@@ -758,29 +762,30 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
       <p>  
           <h3><I>FRIDAY</I></h3>
           <ul>
-          <li>Methi Thepla (Fenugreek Flatbread)</li>
-          <li>Masala Brown rice</li>
-          <li>Multigrain Chapati</li>
-          <li>Curd</li>
-          <li>Seasonal Fruits</li>
-      </ul>
+            <li>Vegetable: Mixed Vegetables (Cabbage, Carrot, Peas)</li>
+            <li>Curry: Red Lentil (Masoor Dal)</li>
+            <li>Bread: Whole Wheat Chapati</li>
+            <li>Dairy: Curd</li>
+            <li>Fruit: Kiwi</li>
+            <!-- <li>Fats: 7g, Carbs: 49g, Proteins: 17g</li> -->
+            </ul>
       </p>
       <div class="nutrition-values">
           <div class="nutrition-value">
             <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
-              14g
+              7g
             </div>
             <div class="nutrition-value-label">Fat</div>
           </div>
           <div class="nutrition-value">
             <div class="nutrition-value-circle" style="background-color: #e79797;">
-              105g
+              49g
             </div>
             <div class="nutrition-value-label">Carb</div>
           </div>
           <div class="nutrition-value">
             <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
-              18g
+              17g
             </div>
             <div class="nutrition-value-label">Protein</div>
           </div>
@@ -793,30 +798,30 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
           <p>  
               <h3><I>SATURDAY</I></h3>
               <ul>
-              <li>Vegetables:Chole (Chickpea Curry)</li>
-              <li> Methi Dal (Fenugreek and Lentil Curry)</li>
-              <li>Brown rice</li>
-              <li>Multigrain Chapati</li>
-              <li>Curd</li>
-              <li>Seasonal Fruits</li>
-          </ul>
+                <li>Vegetable: Bottle Gourd (Lauki)</li>
+                <li>Curry: Black Bean Curry</li>
+                <li>Bread: Jowar Roti</li>
+                <li>Dairy: Buttermilk</li>
+                <li>Fruit: Banana</li>
+                <!-- <li>Fats: 11g, Carbs: 54g, Proteins: 19g</li> -->
+                </ul>
           </p>
           <div class="nutrition-values">
               <div class="nutrition-value">
                 <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
-                  12g
+                  11g
                 </div>
                 <div class="nutrition-value-label">Fat</div>
               </div>
               <div class="nutrition-value">
                 <div class="nutrition-value-circle" style="background-color: #e79797;">
-                  110g
+                  54g
                 </div>
                 <div class="nutrition-value-label">Carb</div>
               </div>
               <div class="nutrition-value">
                 <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
-                  26g
+                  19g
                 </div>
                 <div class="nutrition-value-label">Protein</div>
               </div>
@@ -829,30 +834,32 @@ if (isset($_GET['action']) && $_GET['action'] === 'getData') {
         <p>  
             <h3><I>SUNDAY</I></h3>
             <ul>
-            <li>Tandoori Paneer Tikka</li>
-            <li>Quinoa Vegetable Biryani</li>
-            <li>Raita: Cucumber Mint Raita</li>
-            <li>Dessert: Sugar-Free Phirni (Rice Pudding)</li>
-            <li>Seasonal Fruits</li>
-        </ul>
+            <li>Vegetable: Okra (Bhindi) Stir Fry</li>
+            <li>Curry: Egg Curry</li>
+            <li>Bread: Whole Wheat Chapati</li>
+            <li>Non-Veg: Grilled Fish (optional)</li>
+            <li>Dairy: Curd</li>
+            <li>Fruit: Berries (Mixed)</li>
+            <!-- <li>Fats: 15g, Carbs: 46g, Proteins: 26g</li> -->
+            </ul>
         </p>
         <div class="Sunday">
         <div class="nutrition-values">
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #c1e3f7;">
-                18g
+                15g
               </div>
               <div class="nutrition-value-label">Fat</div>
             </div>
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #e79797;">
-                100g
+                46g
               </div>
               <div class="nutrition-value-label">Carb</div>
             </div>
             <div class="nutrition-value">
               <div class="nutrition-value-circle" style="background-color: #b1e3b1;">
-                35g
+                26g
               </div>
               <div class="nutrition-value-label">Protein</div>
             </div>
